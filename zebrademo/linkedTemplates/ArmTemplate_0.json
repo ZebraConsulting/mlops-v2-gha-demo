@@ -182,28 +182,25 @@
 				},
 				"parameters": {
 					"endpoint_uri": {
-						"type": "string",
-						"defaultValue": "https://taxi-gha-bep-mlops-zebrademoprod.norwayeast.inference.ml.azure.com/jobs"
+						"type": "string"
 					},
 					"poll_interval": {
 						"type": "int",
 						"defaultValue": 120
 					},
 					"endpoint_input_uri": {
-						"type": "string",
-						"defaultValue": "/subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourceGroups/rg-mlops-zebrademoprod/providers/Microsoft.MachineLearningServices/workspaces/mlw-mlops-zebrademoprod/data/taxi-batch/versions/1"
+						"type": "string"
 					},
 					"endpoint_input_type": {
 						"type": "string",
 						"defaultValue": "UriFile"
 					},
 					"endpoint_output_uri": {
-						"type": "string",
-						"defaultValue": "azureml://datastores/workspaceblobstore/paths/batch/predictions.csv"
+						"type": "string"
 					}
 				},
 				"annotations": [],
-				"lastPublishTime": "2023-02-01T22:13:53Z"
+				"lastPublishTime": "2023-06-17T16:28:12Z"
 			},
 			"dependsOn": []
 		},
