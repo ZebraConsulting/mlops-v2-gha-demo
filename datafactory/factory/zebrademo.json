@@ -1,0 +1,9 @@
+{
+	"name": "zebrademo",
+	"location": "norwayeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4fa055ca-1525-4b97-8205-a6cfd3d70b89",
+		"tenantId": "56b002fe-4ae1-4678-8650-cd67e07d750f"
+	}
+}
