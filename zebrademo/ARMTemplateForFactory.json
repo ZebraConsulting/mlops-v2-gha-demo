@@ -43,7 +43,7 @@
 							"parameters": {
 								"endpoint_uri": "https://taxi-gha-bep-mlops-zebrademoprod.norwayeast.inference.ml.azure.com/jobs",
 								"poll_interval": 120,
-								"endpoint_input_uri": "/subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourceGroups/rg-mlops-zebrademoprod/providers/Microsoft.MachineLearningServices/workspaces/mlw-mlops-zebrademoprod/data/taxi-batch/versions/1",
+								"endpoint_input_uri": "azureml://subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourcegroups/rg-mlops-zebrademoprod/workspaces/mlw-mlops-zebrademoprod/datastores/workspaceblobstore/paths/taxi-batch.csv",
 								"endpoint_input_type": "UriFile",
 								"endpoint_output_uri": "azureml://datastores/workspaceblobstore/paths/batch/predictions.csv"
 							}
