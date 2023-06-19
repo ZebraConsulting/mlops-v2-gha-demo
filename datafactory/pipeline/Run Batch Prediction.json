@@ -1,0 +1,93 @@
+{
+	"name": "Run Batch Prediction",
+	"properties": {
+		"activities": [
+			{
+				"name": "Run-BatchEndpoint-MI",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Sink",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Run-BatchEndpoint-MI",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"endpoint_uri": "https://taxi-gha-bep-mlops-zebrademoprod.norwayeast.inference.ml.azure.com/jobs",
+						"poll_interval": 120,
+						"endpoint_input_uri": "/subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourceGroups/rg-mlops-zebrademoprod/providers/Microsoft.MachineLearningServices/workspaces/mlw-mlops-zebrademoprod/data/taxi-batch/versions/1",
+						"endpoint_input_type": "UriFile",
+						"endpoint_output_uri": "azureml://datastores/workspaceblobstore/paths/batch/predictions.csv"
+					}
+				}
+			},
+			{
+				"name": "Sink",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "taxibatch",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "taxibatch",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"name": "taxibatch",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "taxi-batch.csv",
+				"container": "batchdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "distance",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_latitude",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_longitude",
+				"type": "String"
+			},
+			{
+				"name": "passengers",
+				"type": "String"
+			},
+			{
+				"name": "pickup_latitude",
+				"type": "String"
+			},
+			{
+				"name": "pickup_longitude",
+				"type": "String"
+			},
+			{
+				"name": "pickup_weekday",
+				"type": "String"
+			},
+			{
+				"name": "pickup_month",
+				"type": "String"
+			},
+			{
+				"name": "pickup_monthday",
+				"type": "String"
+			},
+			{
+				"name": "pickup_hour",
+				"type": "String"
+			},
+			{
+				"name": "pickup_minute",
+				"type": "String"
+			},
+			{
+				"name": "pickup_second",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_weekday",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_month",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_monthday",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_hour",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_minute",
+				"type": "String"
+			},
+			{
+				"name": "dropoff_second",
+				"type": "String"
+			},
+			{
+				"name": "store_forward",
+				"type": "String"
+			},
+			{
+				"name": "vendor",
+				"type": "String"
+			}
+		]
+	}
+}
