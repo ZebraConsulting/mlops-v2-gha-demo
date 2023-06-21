@@ -1,0 +1,148 @@
+{
+	"name": "CustomerData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "CustomerData.csv",
+				"container": "batchdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "orgNr",
+				"type": "String"
+			},
+			{
+				"name": "companyName",
+				"type": "String"
+			},
+			{
+				"name": "visitingAddress",
+				"type": "String"
+			},
+			{
+				"name": "visitingPostCode",
+				"type": "String"
+			},
+			{
+				"name": "visitingCity",
+				"type": "String"
+			},
+			{
+				"name": "postalAddress",
+				"type": "String"
+			},
+			{
+				"name": "postalPostCode",
+				"type": "String"
+			},
+			{
+				"name": "postalCity",
+				"type": "String"
+			},
+			{
+				"name": "telephoneNumber",
+				"type": "String"
+			},
+			{
+				"name": "mobileNumber",
+				"type": "String"
+			},
+			{
+				"name": "telefaxNumber",
+				"type": "String"
+			},
+			{
+				"name": "municipality",
+				"type": "String"
+			},
+			{
+				"name": "county",
+				"type": "String"
+			},
+			{
+				"name": "noOfEmployees",
+				"type": "String"
+			},
+			{
+				"name": "regDate",
+				"type": "String"
+			},
+			{
+				"name": "foundedDate",
+				"type": "String"
+			},
+			{
+				"name": "orgForm",
+				"type": "String"
+			},
+			{
+				"name": "internet",
+				"type": "String"
+			},
+			{
+				"name": "chairman",
+				"type": "String"
+			},
+			{
+				"name": "managingDirector",
+				"type": "String"
+			},
+			{
+				"name": "acceded",
+				"type": "String"
+			},
+			{
+				"name": "managingDirectorTel",
+				"type": "String"
+			},
+			{
+				"name": "firstName",
+				"type": "String"
+			},
+			{
+				"name": "lastName",
+				"type": "String"
+			},
+			{
+				"name": "eMail",
+				"type": "String"
+			},
+			{
+				"name": "naceCode",
+				"type": "String"
+			},
+			{
+				"name": "naceDescription",
+				"type": "String"
+			},
+			{
+				"name": "salary",
+				"type": "String"
+			},
+			{
+				"name": "revenue",
+				"type": "String"
+			},
+			{
+				"name": "bankruptcyRate",
+				"type": "String"
+			}
+		]
+	}
+}
