@@ -1,0 +1,87 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CustomerData",
+						"type": "DatasetReference"
+					},
+					"name": "CustomerData"
+				},
+				{
+					"dataset": {
+						"referenceName": "EnlistActivity",
+						"type": "DatasetReference"
+					},
+					"name": "ActivityData"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "JoinOnOrgNr"
+				},
+				{
+					"name": "aggregate1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          orgNr as string,",
+				"          companyName as string,",
+				"          visitingAddress as string,",
+				"          visitingPostCode as string,",
+				"          visitingCity as string,",
+				"          postalAddress as string,",
+				"          postalPostCode as string,",
+				"          postalCity as string,",
+				"          telephoneNumber as string,",
+				"          mobileNumber as string,",
+				"          telefaxNumber as string,",
+				"          municipality as string,",
+				"          county as string,",
+				"          noOfEmployees as string,",
+				"          regDate as string,",
+				"          foundedDate as string,",
+				"          orgForm as string,",
+				"          internet as string,",
+				"          chairman as string,",
+				"          managingDirector as string,",
+				"          acceded as string,",
+				"          managingDirectorTel as string,",
+				"          firstName as string,",
+				"          lastName as string,",
+				"          eMail as string,",
+				"          naceCode as string,",
+				"          naceDescription as string,",
+				"          salary as string,",
+				"          revenue as string,",
+				"          bankruptcyRate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> CustomerData",
+				"source(output(",
+				"          orgNr as string,",
+				"          lastActivityDate as string,",
+				"          lastActivityStatus as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> ActivityData",
+				"CustomerData, ActivityData join(CustomerData@orgNr == ActivityData@orgNr,",
+				"     joinType:'left',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> JoinOnOrgNr",
+				"JoinOnOrgNr aggregate(groupBy(CustomerData@orgNr)) ~> aggregate1"
+			]
+		}
+	}
+}
