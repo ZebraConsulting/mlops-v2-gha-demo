@@ -327,6 +327,352 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/CustomerData')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "CustomerData.csv",
+						"container": "batchdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "orgNr",
+						"type": "String"
+					},
+					{
+						"name": "companyName",
+						"type": "String"
+					},
+					{
+						"name": "visitingAddress",
+						"type": "String"
+					},
+					{
+						"name": "visitingPostCode",
+						"type": "String"
+					},
+					{
+						"name": "visitingCity",
+						"type": "String"
+					},
+					{
+						"name": "postalAddress",
+						"type": "String"
+					},
+					{
+						"name": "postalPostCode",
+						"type": "String"
+					},
+					{
+						"name": "postalCity",
+						"type": "String"
+					},
+					{
+						"name": "telephoneNumber",
+						"type": "String"
+					},
+					{
+						"name": "mobileNumber",
+						"type": "String"
+					},
+					{
+						"name": "telefaxNumber",
+						"type": "String"
+					},
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "county",
+						"type": "String"
+					},
+					{
+						"name": "noOfEmployees",
+						"type": "String"
+					},
+					{
+						"name": "regDate",
+						"type": "String"
+					},
+					{
+						"name": "foundedDate",
+						"type": "String"
+					},
+					{
+						"name": "orgForm",
+						"type": "String"
+					},
+					{
+						"name": "internet",
+						"type": "String"
+					},
+					{
+						"name": "chairman",
+						"type": "String"
+					},
+					{
+						"name": "managingDirector",
+						"type": "String"
+					},
+					{
+						"name": "acceded",
+						"type": "String"
+					},
+					{
+						"name": "managingDirectorTel",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "eMail",
+						"type": "String"
+					},
+					{
+						"name": "naceCode",
+						"type": "String"
+					},
+					{
+						"name": "naceDescription",
+						"type": "String"
+					},
+					{
+						"name": "salary",
+						"type": "String"
+					},
+					{
+						"name": "revenue",
+						"type": "String"
+					},
+					{
+						"name": "bankruptcyRate",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EnlistActivity')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "EnlistActivities.csv",
+						"container": "batchdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "orgNr",
+						"type": "String"
+					},
+					{
+						"name": "lastActivityDate",
+						"type": "String"
+					},
+					{
+						"name": "lastActivityStatus",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EnlistTrainingset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "batchdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "id",
+						"type": "String"
+					},
+					{
+						"name": "orgNr",
+						"type": "String"
+					},
+					{
+						"name": "companyName",
+						"type": "String"
+					},
+					{
+						"name": "visitingAddress",
+						"type": "String"
+					},
+					{
+						"name": "visitingPostCode",
+						"type": "String"
+					},
+					{
+						"name": "visitingCity",
+						"type": "String"
+					},
+					{
+						"name": "postalAddress",
+						"type": "String"
+					},
+					{
+						"name": "postalPostCode",
+						"type": "String"
+					},
+					{
+						"name": "postalCity",
+						"type": "String"
+					},
+					{
+						"name": "telephoneNumber",
+						"type": "String"
+					},
+					{
+						"name": "mobileNumber",
+						"type": "String"
+					},
+					{
+						"name": "telefaxNumber",
+						"type": "String"
+					},
+					{
+						"name": "municipality",
+						"type": "String"
+					},
+					{
+						"name": "county",
+						"type": "String"
+					},
+					{
+						"name": "noOfEmployees",
+						"type": "String"
+					},
+					{
+						"name": "regDate",
+						"type": "String"
+					},
+					{
+						"name": "foundedDate",
+						"type": "String"
+					},
+					{
+						"name": "orgForm",
+						"type": "String"
+					},
+					{
+						"name": "internet",
+						"type": "String"
+					},
+					{
+						"name": "chairman",
+						"type": "String"
+					},
+					{
+						"name": "managingDirector",
+						"type": "String"
+					},
+					{
+						"name": "acceded",
+						"type": "String"
+					},
+					{
+						"name": "managingDirectorTel",
+						"type": "String"
+					},
+					{
+						"name": "firstName",
+						"type": "String"
+					},
+					{
+						"name": "lastName",
+						"type": "String"
+					},
+					{
+						"name": "eMail",
+						"type": "String"
+					},
+					{
+						"name": "naceCode",
+						"type": "String"
+					},
+					{
+						"name": "naceDescription",
+						"type": "String"
+					},
+					{
+						"name": "salary",
+						"type": "String"
+					},
+					{
+						"name": "revenue",
+						"type": "String"
+					},
+					{
+						"name": "bankruptcyRate",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Run Batch Prediction')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -353,7 +699,7 @@
 							"parameters": {
 								"endpoint_uri": "https://taxi-gha-bep-mlops-zebrademoprod.norwayeast.inference.ml.azure.com/jobs",
 								"poll_interval": 120,
-								"endpoint_input_uri": "azureml://subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourcegroups/rg-mlops-zebrademoprod/workspaces/mlw-mlops-zebrademoprod/datastores/workspaceblobstore/paths/taxi-batch.csv",
+								"endpoint_input_uri": "azureml://subscriptions/5251204e-6ae9-4060-8a7d-2dcdacbec750/resourcegroups/rg-mlops-zebrademoprod/workspaces/mlw-mlops-zebrademoprod/datastores/batchdata/paths/taxi-batch.csv",
 								"endpoint_input_type": "UriFile",
 								"endpoint_output_uri": "azureml://datastores/workspaceblobstore/paths/batch/predictions.csv"
 							}
@@ -429,6 +775,225 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/Run-BatchEndpoint-MI')]",
 				"[concat(variables('factoryId'), '/datasets/taxibatch')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "CustomerData",
+								"type": "DatasetReference"
+							},
+							"name": "CustomerData"
+						},
+						{
+							"dataset": {
+								"referenceName": "EnlistActivity",
+								"type": "DatasetReference"
+							},
+							"name": "ActivityData"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "EnlistTrainingset",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "JoinOnOrgNr"
+						},
+						{
+							"name": "aggregate1"
+						},
+						{
+							"name": "select1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          id as string,",
+						"          orgNr as string,",
+						"          companyName as string,",
+						"          visitingAddress as string,",
+						"          visitingPostCode as string,",
+						"          visitingCity as string,",
+						"          postalAddress as string,",
+						"          postalPostCode as string,",
+						"          postalCity as string,",
+						"          telephoneNumber as string,",
+						"          mobileNumber as string,",
+						"          telefaxNumber as string,",
+						"          municipality as string,",
+						"          county as string,",
+						"          noOfEmployees as string,",
+						"          regDate as string,",
+						"          foundedDate as string,",
+						"          orgForm as string,",
+						"          internet as string,",
+						"          chairman as string,",
+						"          managingDirector as string,",
+						"          acceded as string,",
+						"          managingDirectorTel as string,",
+						"          firstName as string,",
+						"          lastName as string,",
+						"          eMail as string,",
+						"          naceCode as string,",
+						"          naceDescription as string,",
+						"          salary as string,",
+						"          revenue as string,",
+						"          bankruptcyRate as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> CustomerData",
+						"source(output(",
+						"          orgNr as string,",
+						"          lastActivityDate as string,",
+						"          lastActivityStatus as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> ActivityData",
+						"CustomerData, aggregate1 join(CustomerData@orgNr == aggregate1@orgNr,",
+						"     joinType:'left',",
+						"     matchType:'exact',",
+						"     ignoreSpaces: false,",
+						"     broadcast: 'auto')~> JoinOnOrgNr",
+						"ActivityData aggregate(groupBy(orgNr),",
+						"     NumberOfCalls = count(orgNr)) ~> aggregate1",
+						"JoinOnOrgNr select(mapColumn(",
+						"          orgNr = CustomerData@orgNr,",
+						"          companyName,",
+						"          visitingAddress,",
+						"          visitingPostCode,",
+						"          visitingCity,",
+						"          postalAddress,",
+						"          postalPostCode,",
+						"          postalCity,",
+						"          municipality,",
+						"          county,",
+						"          noOfEmployees,",
+						"          regDate,",
+						"          foundedDate,",
+						"          orgForm,",
+						"          internet,",
+						"          chairman,",
+						"          managingDirector,",
+						"          acceded,",
+						"          managingDirectorTel,",
+						"          naceCode,",
+						"          naceDescription,",
+						"          salary,",
+						"          revenue,",
+						"          bankruptcyRate,",
+						"          NumberOfCalls",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> select1",
+						"select1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          id as string,",
+						"          orgNr as string,",
+						"          companyName as string,",
+						"          visitingAddress as string,",
+						"          visitingPostCode as string,",
+						"          visitingCity as string,",
+						"          postalAddress as string,",
+						"          postalPostCode as string,",
+						"          postalCity as string,",
+						"          telephoneNumber as string,",
+						"          mobileNumber as string,",
+						"          telefaxNumber as string,",
+						"          municipality as string,",
+						"          county as string,",
+						"          noOfEmployees as string,",
+						"          regDate as string,",
+						"          foundedDate as string,",
+						"          orgForm as string,",
+						"          internet as string,",
+						"          chairman as string,",
+						"          managingDirector as string,",
+						"          acceded as string,",
+						"          managingDirectorTel as string,",
+						"          firstName as string,",
+						"          lastName as string,",
+						"          eMail as string,",
+						"          naceCode as string,",
+						"          naceDescription as string,",
+						"          salary as string,",
+						"          revenue as string,",
+						"          bankruptcyRate as string",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     saveOrder: 1) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/CustomerData')]",
+				"[concat(variables('factoryId'), '/datasets/EnlistActivity')]",
+				"[concat(variables('factoryId'), '/datasets/EnlistTrainingset')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CreateTrainingset')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "dataflow1",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow1",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"CustomerData": {},
+									"ActivityData": {},
+									"sink1": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/dataflow1')]"
 			]
 		}
 	]
