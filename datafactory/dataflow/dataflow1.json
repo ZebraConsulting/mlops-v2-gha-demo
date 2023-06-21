@@ -91,7 +91,7 @@
 				"     broadcast: 'auto')~> JoinOnOrgNr",
 				"JoinOnOrgNr aggregate(groupBy(orgNr,",
 				"          {} = ERROR_FUNCTION('')),",
-				"     NumberOfCalls = count(orgNr)) ~> aggregate1",
+				"     NumberOfCalls = count(CustomerData@orgNr)) ~> aggregate1",
 				"aggregate1 sink(validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
