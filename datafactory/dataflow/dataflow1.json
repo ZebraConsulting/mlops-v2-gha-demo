@@ -17,6 +17,9 @@
 						"type": "DatasetReference"
 					},
 					"name": "ActivityData"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [
@@ -79,12 +82,16 @@
 				"     validateSchema: false,",
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> ActivityData",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
 				"CustomerData, ActivityData join(CustomerData@orgNr == ActivityData@orgNr,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinOnOrgNr",
-				"JoinOnOrgNr aggregate(groupBy(CustomerData@orgNr)) ~> aggregate1",
+				"JoinOnOrgNr aggregate(groupBy(orgNr,",
+				"          {} = ERROR_FUNCTION('')),",
+				"     NumberOfCalls = count(orgNr)) ~> aggregate1",
 				"aggregate1 sink(validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
