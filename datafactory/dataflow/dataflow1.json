@@ -19,7 +19,11 @@
 					"name": "ActivityData"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "JoinOnOrgNr"
@@ -80,7 +84,14 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> JoinOnOrgNr",
-				"JoinOnOrgNr aggregate(groupBy(CustomerData@orgNr)) ~> aggregate1"
+				"JoinOnOrgNr aggregate(groupBy(CustomerData@orgNr)) ~> aggregate1",
+				"aggregate1 sink(validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     store: 'cache',",
+				"     format: 'inline',",
+				"     output: false,",
+				"     saveOrder: 1) ~> sink1"
 			]
 		}
 	}
