@@ -1,0 +1,36 @@
+{
+	"name": "EnlistActivity",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "EnlistActivities.csv",
+				"container": "batchdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "orgNr",
+				"type": "String"
+			},
+			{
+				"name": "lastActivityDate",
+				"type": "String"
+			},
+			{
+				"name": "lastActivityStatus",
+				"type": "String"
+			}
+		]
+	}
+}
